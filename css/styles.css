@@ -1,0 +1,263 @@
+#mainSite {
+  position: relative;
+  display: none;
+}
+
+#landingSite {
+  display: block;
+  position: absolute;
+}
+
+#nameMessage {
+  width: 600px;
+  height: 50px;
+  display: flex;
+  color: gold;
+  background-color: blue;
+  border: 5px solid gold;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: space-around;
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
+  margin-top: 100px;
+  margin-left: 300px;
+
+}
+
+#nameInput {
+  width: 150px;
+  height: 45px;
+  margin-top: 100px;
+  color: blue;
+  border: 5px solid gold;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  margin-bottom: -50px;
+  margin-left: 450px;
+}
+
+#submitButton {
+  width: 100px;
+  height: 50px;
+  margin-top: 100px;
+  color: gold;
+  background-color: blue;
+  border: 5px solid gold;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+}
+
+.show {
+  display: none;
+}
+
+body {
+  background: linear-gradient(to top right, black, gray, purple, blue, red, blue, purple, gray, black);
+  background-attachment:fixed;
+  height:100%;
+}
+
+header img {
+  margin-left: 80px;
+  width: 1100px;
+  height: 350px;
+  border-radius: 20px;
+}
+
+#startButton {
+  width: 250px;
+  height: 100px;
+  float: right;
+  margin-top: 30px;
+  margin-right: 100px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 42px;
+  color: white;
+  background-color: blue;
+  border: 5px solid gold;
+}
+
+#textBox p {
+  display: inline-block;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 19px;
+  font-weight: 900;
+}
+
+#textBox {
+  width: 600px;
+  height: 100px;
+  background-color: white;
+  display: inline-block;
+  position: absolute;
+  margin-top: 70px;
+  margin-left: 250px;
+  border-radius: 90px;
+
+}
+
+#container {
+  display: flex;
+  background-color: silver;
+  width: 800px;
+  position: absolute;
+  margin-top: -100px;
+  margin-left: 250px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  border-radius: 20px;
+}
+
+input {
+  width: 150px;
+  height: 100px;
+  border: 2px solid gold;
+
+}
+
+.category {
+  width: 152px;
+  height: 100px;
+  background-color: blue;
+  color: white;
+  display: inline-flex;
+  justify-content: column;
+  border-top: 15px solid silver;
+  border-bottom: 20px solid silver;
+  margin-left: 1px;
+  margin-right: 1px;
+
+}
+  .cell {
+   display: inline-flex;
+}
+
+footer {
+  background-color: blue;
+}
+
+#bankText {
+  font-size: 46px;
+  align-items: baseline;
+  float: right;
+  font-family: 'Oswald', sans-serif;
+  color: gold;
+  justify-content: space-between;
+  position: absolute;
+}
+
+#bank {
+  width: 120px;
+  display: inline-flex;
+  font-size: 44px;
+  align-items: baseline;
+  float: right;
+  font-family: 'Oswald', sans-serif;
+  color: gold;
+  justify-content: space-around;
+  position: absolute;
+  padding: 2px;
+  margin-top: 90px;
+  margin-left: 70px;
+  background-color: black;
+  border-radius: 20px;
+}
+
+#answerButtons{
+  width: 200px;
+  height: 300px;
+  color: white;
+background-color: blue;
+border: 5px solid gold;
+margin-top: 200px;
+margin-left: 15px;
+font-family: 'Oswald', sans-serif;
+font-size: 42px;
+font-weight: 900;
+text-align: center;
+}
+
+.radioDiv {
+  color: blue;
+width: 75px;
+background-color: gold;
+  height: 50px;
+  display: inline-flex;
+border: 2px solid black;
+justify-content: space-around;
+align-items: center;
+}
+
+#submitChoice {
+  color: blue;
+  font-size: 20px;
+  height: 50px;
+  position: absolute;
+  margin-top: 62px;
+  margin-left: -160px;
+  font-family: 'Oswald', sans-serif;
+  border: 2px solid black;
+}
+
+
+#resetButton {
+  width: 150px;
+  height: 50px;
+  float: right;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  background-color: blue;
+  color: white;
+  border: 5px solid gold;
+  margin-right: 20px;
+
+}
+
+
+#trebek {
+  animation-name: bounce;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  transform-origin: center bottom;
+  animation-timing-function: linear;
+}
+
+@keyframes bounce {
+  from, 20%, 53%, 80%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transform: translate3d(0,0,0);
+  }
+
+  40%, 43% {
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transform: translate3d(0, -30px, 0);
+  }
+
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transform: translate3d(0, -15px, 0);
+  }
+
+  90% {
+    transform: translate3d(0,-4px,0);
+  }
+}
+
+
+
+
+
+
+
+
+/*Simple reset*/
+  {
+    margin: 0;
+    padding: 0;
+}
+
+canvas {
+    display: block;
+}

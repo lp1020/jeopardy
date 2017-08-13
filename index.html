@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>This Is Jeopardy</title>
+   <link href="css/styles.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kadwa" rel="stylesheet">
+  <script
+  src="http://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="landingSite">
+<div id="nameMessage">THIS...IS...JEOPARDY! Submit name to continue </div>
+<input type="text" class="" id="nameInput" placeholder='First name'>
+<input type="button" value="Submit" class="landingSubmit" id="submitButton">
+</div>
+
+<div id="mainSite">
+<canvas id="canvas"></canvas>
+  <header><img src="images/jeopardy-logo.jpg"></header>
+<button id="startButton">START GAME</button>
+<section id="trebekTalk">
+<div id="textBox"><p><u>Alex says:</u> "Click on a value to reveal the answer.
+Correct questions add the value to your bank, incorrect questions will subtract from bank.
+Click START GAME to begin."</p></div>
+<img id="trebek" src="images/trebek.png">
+</section>
+<div id="container">
+<div id="board">
+  <div class="categoryRow"><!--categories: Movies, Music, Comic Books, Animals, Potpurri-->
+    <div class="category" id="category1"><input type="image" src="images/jeopardycell.jpg"/></div>
+    <div class="category" id="category2"><input type="image" src="images/jeopardycell.jpg"/></div>
+    <div class="category" id="category3"><input type="image" src="images/jeopardycell.jpg"/></div>
+    <div class="category" id="category4"><input type="image" src="images/jeopardycell.jpg"/></div>
+    <div class="category" id="category5"><input type="image" src="images/jeopardycell.jpg"/></div>
+  </div>
+
+  <div class="row100">
+  <div class="cell" id="value1001">
+  <input type="image" class="clue" src="images/jeopardycell.jpg" value="100">
+  </div>
+  <div class="cell" id="value1002">
+  <input type="image" class="clue" src="images/jeopardycell.jpg" value="100">
+  </div>
+  <div class="cell" id="value1003">
+  <input type="image" class="clue" src="images/jeopardycell.jpg" value="100">
+  </div>
+  <div class="cell" id="value1004">
+  <input type="image" class="clue" src="images/jeopardycell.jpg" value="100">
+  </div>
+  <div class="cell" id="value1005">
+  <input type="image" class="clue" src="images/jeopardycell.jpg" value="100">
+  </div>
+  </div>
+
+ <div class="row200">
+  <div class="cell" id="value2001">
+  <input type="image" class="clue" src="images/jeopardycell.jpg" value="200">
+  </div>
+  <div class="cell" id="value2002">
+  <input type="image" class="clue" src="images/jeopardycell.jpg" value="200">
+  </div>
+  <div class="cell" id="value2003">
+  <input type="image" class="clue" src="images/jeopardycell.jpg" value="200">
+  </div>
+  <div class="cell" id="value2004">
+  <input type="image" class="clue" src="images/jeopardycell.jpg" value="200">
+  </div>
+  <div class="cell" id="value2005">
+  <input type="image" class="clue" src="images/jeopardycell.jpg" value="200">
+  </div>
+  </div>
+
+   <div class="row300">
+  <div class="cell" id="value3001">
+  <input type="image" src="images/jeopardycell.jpg">
+  </div>
+  <div class="cell" id="value3002">
+  <input type="image" src="images/jeopardycell.jpg">
+  </div>
+  <div class="cell" id="value3003">
+  <input type="image" src="images/jeopardycell.jpg">
+  </div>
+  <div class="cell" id="value3004">
+  <input type="image" src="images/jeopardycell.jpg">
+  </div>
+  <div class="cell" id="value3005">
+  <input type="image" src="images/jeopardycell.jpg">
+  </div>
+  </div>
+
+   <div class="row400">
+  <div class="cell" id="value4001">
+  <input type="image" src="images/jeopardycell.jpg">
+  </div>
+  <div class="cell" id="value4002">
+  <input type="image" src="images/jeopardycell.jpg">
+  </div>
+  <div class="cell" id="value4003">
+  <input type="image" src="images/jeopardycell.jpg">
+  </div>
+  <div class="cell" id="value4004">
+  <input type="image" src="images/jeopardycell.jpg">
+  </div>
+  <div class="cell" id="value4005">
+  <input type="image" src="images/jeopardycell.jpg">
+  </div>
+  </div>
+
+   <div class="row500">
+  <div class="cell" id="value5001">
+  <input type="image" src="images/jeopardycell.jpg">
+  </div>
+  <div class="cell" id="value5002">
+  <input type="image" src="images/jeopardycell.jpg">
+  </div>
+  <div class="cell" id="value5003">
+  <input type="image" src="images/jeopardycell.jpg">
+  </div>
+  <div class="cell" id="value5004">
+  <input type="image" src="images/jeopardycell.jpg">
+  </div>
+  <div class="cell" id="value5005">
+  <input type="image" src="images/jeopardycell.jpg">
+  </div>
+  </div>
+
+</div>
+</div>
+<div id="bankText">
+</div>
+<div id="bank">$0</div>
+<div id="answerButtons">ANSWER HERE
+<form>
+<div class="radioDiv" id="choiceA">A<input type="radio" name="choice" class="choiceButton" value="A" required></div>
+<div class="radioDiv" id="choiceB">B<input type="radio" name="choice" class="choiceButton" value="B" id="choiceB"></div>
+<div class="radioDiv" id="choiceC">C<input type="radio" name="choice" class="choiceButton" value="C" id="choiceC"></div>
+<div class="radioDiv" id="choiceD">D<input type="radio" name="choice" class="choiceButton" value="D" id="choiceD"></div>
+<input type="button" id="submitChoice" value="Submit">
+</form>
+</div>
+<div id="resetContainer"><button id="resetButton" onClick="history.go(0)">PLAY AGAIN</button></div>
+</div>
+
+  <script src="js/app.js" type="text/javascript"></script>
+
+</body>
+</html>
