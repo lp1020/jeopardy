@@ -2,58 +2,48 @@
 
 ## Project Description
 
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality
+I made Jeopardy, which is a classic trivia game show in which players answer questions with different monetary values. If they answer the question correctly, the money is added to their bank, and if they are incorrect, it is subtracted. The player with the most money at the end of the game wins. 
 
 ## Wireframes
 
-Include images of your wireframes. 
+![img](https://git.generalassemb.ly/lp1020/project-1/blob/master/images/wireframe.JPG) 
 
 ## Game Components
 
 ### Landing Page
-What will a player see when they start your game?
+The player will see a form asking for their name before they move onto the main page.
 
 ### Game Initialization
-What will a player see when the game is started? 
+Upon clicking the start button, the game board with all the categories and monetary values will be revealed. 
 
 ### Playing The Game
-What will be the flow of the game, what will the user be expeted to do and what will the user expect from the gam
+The  player will click on different values on the board which will display different questions pertaining to a set category. If they answer correctly, the value will be added to their bank, and if incorrect, it will be subtracted. 
 
 ### Winning The Game
-What does it look like when the game ends, what determines winning or losing?
+The game ands when all the questions on the board have been answered. If the user has money in their bank at the end, they win, and if they are at 0 or a negative balance, they lose. 
 
 ### Game Reset
-How will the user restart the game once it has been completed.
+There is a "play again" button to the right of the screen. This will reload the page. 
 
 ## Functional Components
 
-Based on the initial logic defined in the previous game phases section try and breakdown the logic further into functional components, and by that we mean functions.  Does your logic indicate that code could be encapsulated for the purpose of reusablility.  Once a function has been defined it can then be incorporated into a class as a method. 
+My main functions were setting the correct and incorrect answers for each question, and based on that, adding or subtracting the value from the player's bank. I looped through each possible answer for each question and said if it's been clicked and the answer is correct, add the value to their bank, otherwise, subtract it. 
 
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. 
+Another was to set the value to a different color of it was on the plus or negative side. I added that to my main functions of the game. 
 
-| Component | Priority | Estimated Time | Time Invetsted | Actual Time |
-| --- | :---: |  :---: | :---: | :---: |
-| Component 1 | H | 10hrs| 12hrs | 12hrs |
+Finally, my win function checked to see how many cells in the board were clicked. I added a "clicked" class to my "cell" class once each item has been clicked, and only when the number of clicked items is equivalent to the number of cell items should the win function activate displaying either the win or lose message. 
 
-## Helper Functions
-Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
 
-| Function | Description | 
-| --- | :---: |  
-| Capitalize | This will capitalize the first letter in a string | 
-
-## Additional Libraries
- Use this section to list all supporting libraries and thier role in the project. 
-
-## jQuery Discoveries
- Use this section to list some, but not all, of the jQuery methods and\or functionality discovered while working on this project.
-
-## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+## Libraries
+ *HTML
+ *CSS
+ *CSS animations
+ *Canvas animations
+ *Vanilla Javascript
+ *jQuery
 
 ## Issues and Resolutions
- Use this section to list of all major issues encountered and their resolution.
+ I had an issue with displaying the correct color for the bank depending on the value. I fixed it by making a function outside of my main cell click function, and calling it inside each cell instead of just creating one click function inside my cell click function.
+ 
+ Another issue I'm still trying to deal with is the win function displaying too early. I want it to display after all the cells have been clicked, but for some reason, my function stopped working after I added the rest of the cells. 
 
-#### SAMPLE.....
-**ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
-**RESOLUTION**: Missing comma after first object in sources {} object
