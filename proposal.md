@@ -1,5 +1,5 @@
 ***Liana Penn/8-8-2017***
-# Jeapordy Proposal
+# Jeopordy Proposal
 ## What is Jeapordy?
 Jeapordy is a famous trivia game show in which players win or lose specified amounts of money depending on the amount assigned to a certain question.
 If they answer the question correctly, they gain the money, and if they answer incorrectly, they lose that amount of money.
