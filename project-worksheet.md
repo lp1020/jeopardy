@@ -35,12 +35,12 @@ Finally, my win function checked to see how many cells in the board were clicked
 
 
 ## Libraries
- *HTML
- *CSS
- *CSS animations
- *Canvas animations
- *Vanilla Javascript
- *jQuery
+ * HTML
+ * CSS
+ * CSS animations
+ * Canvas animations
+ * Vanilla Javascript
+ * jQuery
 
 ## Issues and Resolutions
  I had an issue with displaying the correct color for the bank depending on the value. I fixed it by making a function outside of my main cell click function, and calling it inside each cell instead of just creating one click function inside my cell click function.
