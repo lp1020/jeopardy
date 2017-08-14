@@ -705,13 +705,90 @@ function bankColor() {
 }
 }
 
+
+ let clicked = document.getElementsByClassName('clicked');
+ let $cell = $('.cell').click(function() {
+  event.stopPropagation();
+  $(this).addClass('clicked')
+  if ($cell.length === clicked.length)
+
+      //If the scoreboard is less than or equal to 0, the player has lost
+      {
+      if (scoreBoard <= 0) {
+        $textBox.text('YOU HAVE LOST JEOPARDY. PLAY AGAIN!').css({
+          'font-family': 'Oswald',
+          'display': 'inline-flex',
+          'font-size': '32px',
+          'text-align': 'center',
+          'align-items': 'center',
+          'justify-content': 'space-around',
+
+
+        });
+        alert('YOU HAVE LOST JEOPARDY. PLAY AGAIN!')
+      }
+} //If the scoreboard is above 0, the player has won
+     else if (scoreBoard > 0) {
+      //Display the wonner text in the text box
+      $textBox.text('YOU HAVE WON JEOPARDY! SCROLL UP FOR CONFETTI!').css({
+        'font-family': 'Oswald',
+          'display': 'inline-flex',
+          'font-size': '26px',
+          'text-align': 'center',
+          'align-items': 'center',
+          'justify-content': 'space-around',
+      });
+      alert('YOU HAVE WON JEOPARDY! SCROLL UP FOR CONFETTI!')
+     //Cue confetti animation
+      confetti();
+     }
+})
+
   //Taken partially from Stack Overflow
-$('.cell').click(function() {
-  console.log('Clicked')
+$('.cell').on('click', function() {
 
      $(this).animate({ 'zoom': 5 }, 900);
       //$('.cell').click(function() {
        //$(this).animate({ 'zoom': 1 }, 500);
+      //})
+let clicked = document.getElementsByClassName('clicked');
+ let $cell = $('.cell').click(function() {
+  event.stopPropagation();
+  $(this).addClass('clicked')
+  if ($cell.length === clicked.length)
+
+      //If the scoreboard is less than or equal to 0, the player has lost
+      {
+      if (scoreBoard <= 0) {
+        $textBox.text('YOU HAVE LOST JEOPARDY. PLAY AGAIN!').css({
+          'font-family': 'Oswald',
+          'display': 'inline-flex',
+          'font-size': '32px',
+          'text-align': 'center',
+          'align-items': 'center',
+          'justify-content': 'space-around',
+
+
+        });
+
+      }
+} //If the scoreboard is above 0, the player has won
+     else if (scoreBoard > 0) {
+      //Display the wonner text in the text box
+      $textBox.text('YOU HAVE WON JEOPARDY! SCROLL UP FOR CONFETTI!').css({
+        'font-family': 'Oswald',
+          'display': 'inline-flex',
+          'font-size': '26px',
+          'text-align': 'center',
+          'align-items': 'center',
+          'justify-content': 'space-around',
+      });
+
+     //Cue confetti animation
+      confetti();
+     }
+})
+
 //Display answers for each clue with switch statement
 $value1001.on('click', function() {
     $('#value1001').text('This is the name of the animated science fiction comedy-drama film released in 2002 about a Hawaiian girl and her unusual pet\n \n A. What is Beauty \& the Beast?\n B. What is Lilo \& Stitch?\n C. What is The Little Mermaid?\n D. What is Moana?').css({
@@ -885,44 +962,1302 @@ $value1003.on('click', function() {
         }
        })
      })
+
+$value1004.on('click', function() {
+    $('#value1004').text('The Chihuahua is a breed of dog believed to originate from this country.\n \n A. What is Spain?\n B. What is Chile?\n C. What is Mexico?\n D. What is France?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        console.log('submit clicked');
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'B', the answer is correct
+            if( $choices[i].value == 'C' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $100
+              scoreBoard+=100
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $100
+            scoreBoard-=100
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value1005.on('click', function() {
+    $('#value1005').text('This is the most common color used in M & M candies.\n \n A. What is blue?\n B. What is brown?\n C. What is yellow?\n D. What is red?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'B', the answer is correct
+            if( $choices[i].value == 'B' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $100
+              scoreBoard+=100
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $100
+            scoreBoard-=100
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value2001.on('click', function() {
+    $('#value2001').text('In the Star Wars universe, she is Luke Skywalker\'s mother.\n \n A. Who is Padmé Amidala?\n B. Who is Leia Organa?\n C. Who is Maz Kanata?\n D. Who is Mon Mothma?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'A', the answer is correct
+            if( $choices[i].value == 'A' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $100
+              scoreBoard+=200
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $100
+            scoreBoard-=200
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value2002.on('click', function() {
+    $('#value2002').text('K-pop is a genre of music that originated in this country.\n \n A. What is Japan?\n B. What is Kazakhstan?\n C. What is North Korea?\n D. What is South Korea?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'D', the answer is correct
+            if( $choices[i].value == 'D' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $100
+              scoreBoard+=200
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $100
+            scoreBoard-=200
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value2002.on('click', function() {
+    $('#value2002').text('K-pop is a genre of music that originated in this country.\n \n A. What is Japan?\n B. What is Kazakhstan?\n C. What is North Korea?\n D. What is South Korea?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'D', the answer is correct
+            if( $choices[i].value == 'D' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $100
+              scoreBoard+=200
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $100
+            scoreBoard-=200
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value2003.on('click', function() {
+    $('#value2003').text('This basketball player was in "Space Jam."\n \n A. Who is Michael Jordan?\n B. Who is Scotty Pippen?\n C. Who is Dennis Rodman?\n D. Who is Tim Hardaway?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'D', the answer is correct
+            if( $choices[i].value == 'A' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $100
+              scoreBoard+=200
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $100
+            scoreBoard-=200
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value2004.on('click', function() {
+    $('#value2004').text('This large mammal\'s tail is so strong it can stand on it and lift its hind legs off the ground.\n \n A. What is a Lion?\n B. What is an Elephant?\n C. What is a Kangaroo?\n D. What is a Giraffe?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'D', the answer is correct
+            if( $choices[i].value == 'C' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $100
+              scoreBoard+=200
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $100
+            scoreBoard-=200
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value2005.on('click', function() {
+    $('#value2005').text('When he developed his Theory of Relativity, Albert Einstein was living in this capital city.\n \n A. What is Salzburg, Austria?\n B. What is St. Petersburg, Russia?\n C. What is Berlin, Germany?\n D. What is Berne, Switzerland?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'D', the answer is correct
+            if( $choices[i].value == 'D' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $200
+              scoreBoard+=200
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $100
+            scoreBoard-=200
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value3001.on('click', function() {
+    $('#value3001').text('In the "Lord of the Rings" film series, this actor plays the character of Saruman.\n \n A. Who is Christopher Lee?\n B. Who is Elijah Wood?\n C. Who is Ian McKellan?\n D. Who is Orlando Bloom?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'A', the answer is correct
+            if( $choices[i].value == 'A' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $300
+              scoreBoard+=300
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $100
+            scoreBoard-=300
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value3002.on('click', function() {
+    $('#value3002').text('This American punk rock band released their best selling album "Dookie" in 1994.\n \n A. Who is No Doubt?\n B. Who is Green Day?\n C. Who is Nirvana?\n D. Who is Sublime?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'A', the answer is correct
+            if( $choices[i].value == 'B' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $300
+              scoreBoard+=300
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $100
+            scoreBoard-=300
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value3003.on('click', function() {
+    $('#value3003').text('Mr. Feeny was the teacher in this popular TV show.\n \n A. What is "Beverly Hills, 90210?"\n B. What is "Saved By The Bell?"\n C. What is "Fresh Prince of Bel-Air?"\n D. What is "Boy Meets World?"').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'D', the answer is correct
+            if( $choices[i].value == 'D' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $300
+              scoreBoard+=300
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $100
+            scoreBoard-=300
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value3004.on('click', function() {
+    $('#value3004').text('This is the largest mammal in the world.\n \n A. What is The Polar Bear\n B. What is The Blue Whale?\n C. What is The Great White Shark?\n D. What is The Elephant').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'B', the answer is correct
+            if( $choices[i].value == 'B' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $300
+              scoreBoard+=300
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $100
+            scoreBoard-=300
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value3005.on('click', function() {
+    $('#value3005').text('This computer game, first popular in the late 1980\'s, was advertised with the slogan, "The Jigsaw Puzzle that fights back".\n \n A. What is Pac-Man?\n B. What is Zaxxon?\n C. What is Tetris?\n D. What is Frogger?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'B', the answer is correct
+            if( $choices[i].value == 'B' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $300
+              scoreBoard+=300
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $100
+            scoreBoard-=300
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value4001.on('click', function() {
+    $('#value4001').text('In the movie "The Wizard of Oz", the Scarecrow wanted this from the wizard.\n \n A. What is a brain?\n B. What is a heart?\n C. What is courage?\n D. What is to go home?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'A', the answer is correct
+            if( $choices[i].value == 'A' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $300
+              scoreBoard+=400
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $100
+            scoreBoard-=400
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value4002.on('click', function() {
+    $('#value4002').text('In music theory, this is the name of the space between one musical pitch and another with double its frequency.\n \n A. What is a triad?\n B. What is tri-tone?\n C. What is an octave?\n D. What is a secondary dominant?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'C', the answer is correct
+            if( $choices[i].value == 'C' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $300
+              scoreBoard+=400
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $100
+            scoreBoard-=400
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value4003.on('click', function() {
+    $('#value4003').text('This was the original flavour of the Dunkaroos cookies.\n \n A. What is Vanilla?\n B. What is Chocolate?\n C. What is Birthday Cake?\n D. What is a Cinnamon?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'D', the answer is correct
+            if( $choices[i].value == 'D' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $300
+              scoreBoard+=400
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $100
+            scoreBoard-=400
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value4004.on('click', function() {
+    $('#value4004').text('"Murder" is the collective noun for a group of this bird.\n \n A. What are Crows?\n B. What are Flamingos?\n C. What are Pidgeons?\n D. What are Parrots?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'A', the answer is correct
+            if( $choices[i].value == 'A' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $400
+              scoreBoard+=400
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $400
+            scoreBoard-=400
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value4005.on('click', function() {
+    $('#value4005').text('This is the two word name for the moment around September 21 of each year when day and night are approximately equal in length.\n \n A. What is Eternal Equinox?\n B. What is Spring Forward?\n C. What is Autumnal Equinox?\n D. What is The Equator?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'C', the answer is correct
+            if( $choices[i].value == 'C' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $400
+              scoreBoard+=400
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $400
+            scoreBoard-=400
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value5001.on('click', function() {
+    $('#value5001').text('This actress played identical twins in the 1998 movie remake of The Parent Trap.\n \n A. Who is Hillary Duff?\n B. Who is Lindsay Lohan?\n C. Who is Miley Cyrus?\n D. Who is Melissa Joan Hart?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'B', the answer is correct
+            if( $choices[i].value == 'B' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $500
+              scoreBoard+=500
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $500
+            scoreBoard-=500
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value5002.on('click', function() {
+    $('#value5002').text('He is the lead singer for the American rock band Pearl Jam.\n \n A. Who is Eddie Vedder?\n B. Who is Kurt Cobain?\n C. Who is Dave Grohl?\n D. Who is Ed Kowalczyk?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'A', the answer is correct
+            if( $choices[i].value == 'A' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $500
+              scoreBoard+=500
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $500
+            scoreBoard-=500
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value5003.on('click', function() {
+    $('#value5003').text('This is the title of the 90s gameshow where teams competed to find lost treasures in a Mayan temple.\n \n A. What is "The Mayan Maze"?\n B. What is "Secrets of a Lost Temple"?\n C. What is "Legends of the Hidden Temple"?\n D. What is "The Goonies"?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'C', the answer is correct
+            if( $choices[i].value == 'C' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $500
+              scoreBoard+=500
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $500
+            scoreBoard-=500
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value5004.on('click', function() {
+    $('#value5004').text('This is the world\'s most poisonous spider.\n \n A. What is the Brown Recluse?\n B. What is the Daddy-Longlegs?\n C. What is the Sydney Funnel Spider?\n D. What is the Brazilian Wandering Spider?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'D', the answer is correct
+            if( $choices[i].value == 'D' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $500
+              scoreBoard+=500
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $500
+            scoreBoard-=500
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+$value5005.on('click', function() {
+    $('#value5005').text('The bronze sculpture known as The Thinker was sculpted 1902 by this French artist.\n \n A. Who is Claude Monet?\n B. Who is Auguste Rodin?\n C. Who is Edgar Degas?\n D. Who is Vincent Van Gogh?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'B', the answer is correct
+            if( $choices[i].value == 'B' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $500
+              scoreBoard+=500
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $500
+            scoreBoard-=500
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
   //end of switch case? I think?
 //Display money value in green if on the plus side and red if at negative balance
 
 //Check to see if all clues have been clicked.
-function isWinner() {
- $('.clue').addClass("clicked");
-  console.log($('.clue').length)
-    if ($(".clue").length == $(".clicked").length) {
-      //If the scoreboard is less than or equal to 0, the player has lost
-      if (scoreBoard <= 0) {
-        $textBox.text('YOU HAVE LOST JEOPARDY. PLAY AGAIN!').css({
-          'font-family': 'Oswald',
-          'display': 'inline-flex',
-          'font-size': '32px',
-          'text-align': 'center',
-          'align-items': 'center',
-          'justify-content': 'space-around',
-
-
-        });
-      }
-} //If the scoreboard is above 0, the player has won
-     else if (scoreBoard > 0) {
-      //Display the wonner text in the text box
-      $textBox.text('YOU HAVE WON JEOPARDY! SCROLL UP FOR CONFETTI!').css({
-        'font-family': 'Oswald',
-          'display': 'inline-flex',
-          'font-size': '26px',
-          'text-align': 'center',
-          'align-items': 'center',
-          'justify-content': 'space-around',
-      });
-     //Cue confetti animation
-      confetti();
-     }
-}
 
 })//end of cell click function
+
 })//closing startbutton function
 
 }//closing onload function
