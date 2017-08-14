@@ -15,7 +15,7 @@ $submitButton.on('click', function() {
   document.querySelector('#landingSite').style.display = 'none';
   document.querySelector('#mainSite').style.display = 'block';
   nameInBank();
-})
+  })
 
 function nameInBank() {
   console.log('name in bank');
@@ -179,12 +179,17 @@ var canvas = document.getElementById("canvas");
 
 
 
-var scoreBoard = 0;
-
-
-
 
 document.querySelector('#startButton').addEventListener('click', function() {
+  $textBox.text('"Select your answer in the box labeled ANSWER HERE on the left."').css({
+    'font-family': 'Oswald',
+    'display': 'inline-flex',
+    'font-size': '32px',
+    'text-align': 'center',
+    'align-items': 'center',
+    'justify-content': 'space-around',
+    'font-weight': '900',
+  })
   $categoryRow.css('margin-bottom', '15px');
   $category1.text('MOVIES').css({
     'color': 'white',
@@ -685,114 +690,9 @@ $value5003 === $value500;
 $value5004 === $value500;
 $value5005 === $value500;
 
-
-
+var scoreBoard = 0;
 //Display answers for each clue with switch statement
-
-  //Taken partially from Stack Overflow
-$('.cell').click(function() {
-  event.stopPropagation()
-  console.log('Clicked')
-
-     $(this).animate({ 'zoom': 5 }, 900);
-     $('.cell').click(function() {
-      event.stopPropagation()
-        return $(this).animate({ 'zoom': 1 }, 900);
-
-})
-})
-
-//Display answers for each clue with switch statement
-$('.cell').click(function() {
-  switch ($(this).attr('id')) {
-    case 'value1001':
-    $('#value1001').text('This is the name of the animated science fiction comedy-drama film released in 2002 about a Hawaiian girl and her unusual pet\n \n A. What is Beauty \& the Beast?\n B. What is Lilo \& Stitch?\n C. What is The Little Mermaid?\n D. What is Moana?').css({
-      'color': 'white',
-      'font-family': 'Kadwa', 'sans-serif',
-      'font-size': '6px',
-      'justify-content': 'space-around',
-      'text-align': 'center',
-      'white-space': 'pre-line',
-    })
-      //Taken partially from Stack Overflow
-      //On clicking the submit choice button, loop through each choice value
-       $submitChoice.on('click', function() {
-        console.log('submit clicked');
-        let $choices = $('.choiceButton');
-        for(let i = 0; i < $choices.length; i++) {
-          //If a choice has been selected...
-          if ($choices[i].checked) {
-            //If the choice value is 'B', the answer is correct
-            if( $choices[i].value == 'B' ) {
-              alert('your answer is correct');
-              //Score board goes up $100
-              scoreBoard+=100
-              $bank.text('$' + scoreBoard)
-
-            }
-            else {
-              //Otherwise, the answer is incorrect
-            alert('your answer is incorrect')
-            //Score board goes down $100
-            scoreBoard-=100
-            $bank.text('$' + scoreBoard)
-
-            }
-            break;
-
-          }
-        }
-       })
-
-    break;
-    case 'value1002':
-    $('#value1002').text('This is the name of the animated science fiction comedy-drama film released in 2002 about a Hawaiian girl and her unusual pet\n \n A. What is Beauty \& the Beast?\n B. What is Lilo \& Stitch?\n C. What is The Little Mermaid?\n D. What is Moana?').css({
-      'color': 'white',
-      'font-family': 'Kadwa', 'sans-serif',
-      'font-size': '6px',
-      'justify-content': 'space-around',
-      'text-align': 'center',
-      'white-space': 'pre-line',
-    })
-      //Taken partially from Stack Overflow
-      //On clicking the submit choice button, loop through each choice value
-       $submitChoice.on('click', function() {
-        console.log('submit clicked');
-        let $choices = $('.choiceButton');
-        for(let i = 0; i < $choices.length; i++) {
-          //If a choice has been selected...
-          if ($choices[i].checked) {
-            //If the choice value is 'B', the answer is correct
-            if( $choices[i].value == 'B' ) {
-              alert('your answer is correct');
-              //Score board goes up $100
-              scoreBoard+=100
-              $bank.text('$' + scoreBoard)
-
-            }
-            else {
-              //Otherwise, the answer is incorrect
-            alert('your answer is incorrect')
-            //Score board goes down $100
-            scoreBoard-=100
-            $bank.text('$' + scoreBoard)
-
-            }
-            break;
-
-          }
-        }
-       })
-      break;
-
-
-
-    default:
-
-  }//end of switch case? I think?
-
-//Display money value in green if on the plus side and red if at negative balance
-$submitChoice.on('click', function() {
+function bankColor() {
       console.log('green or red');
   if (scoreBoard > 0) {
     $bank.css('color', 'green');
@@ -803,7 +703,191 @@ $submitChoice.on('click', function() {
  if (scoreBoard < 0) {
   $bank.css('color', 'red');
 }
-})
+}
+
+  //Taken partially from Stack Overflow
+$('.cell').click(function() {
+  console.log('Clicked')
+
+     $(this).animate({ 'zoom': 5 }, 900);
+      //$('.cell').click(function() {
+       //$(this).animate({ 'zoom': 1 }, 500);
+//Display answers for each clue with switch statement
+$value1001.on('click', function() {
+    $('#value1001').text('This is the name of the animated science fiction comedy-drama film released in 2002 about a Hawaiian girl and her unusual pet\n \n A. What is Beauty \& the Beast?\n B. What is Lilo \& Stitch?\n C. What is The Little Mermaid?\n D. What is Moana?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        console.log('submit clicked');
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'B', the answer is correct
+            if( $choices[i].value == 'B' ) {
+              $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+              //Score board goes up $100
+              scoreBoard+=100
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $100
+            scoreBoard-=100
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+
+    $value1002.on('click', function() {
+    $('#value1002').text('She was the first person to win "American Idol"\n \n A. Who is Carrie Underwood?\n B. Who is Jennifer Hudson?\n C. Who is Jordin Sparks?\n D. Who is Kelly Clarkson?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        console.log('submit clicked');
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'B', the answer is correct
+            if( $choices[i].value == 'D' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $100
+              scoreBoard+=100
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $100
+            scoreBoard-=100
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+
+
+$value1003.on('click', function() {
+    $('#value1003').text('This 90s group is the most successful girl group of all time with over 85 million records sold.\n \n A. Who are The Spice Girls?\n B. Who is Destiny\'s Child?\n C. Who is TLC?\n D. Who are The Pussycat Dolls?').css({
+      'color': 'white',
+      'font-family': 'Kadwa',
+      'font-size': '6px',
+      'justify-content': 'space-around',
+      'text-align': 'center',
+      'white-space': 'pre-line',
+    })
+      //Taken partially from Stack Overflow
+      //On clicking the submit choice button, loop through each choice value
+       $submitChoice.on('click', function() {
+        console.log('submit clicked');
+        let $choices = $('.choiceButton');
+        for(let i = 0; i < $choices.length; i++) {
+          //If a choice has been selected...
+          if ($choices[i].checked) {
+            //If the choice value is 'B', the answer is correct
+            if( $choices[i].value == 'A' ) {
+               $textBox.text('You are correct!').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              })
+              //Score board goes up $100
+              scoreBoard+=100
+              bankColor()
+              $bank.text('$' + scoreBoard)
+
+            }
+            else {
+              //Otherwise, the answer is incorrect
+            $textBox.text('You are incorrect.').css({
+                'font-family': 'Oswald',
+                'display': 'inline-flex',
+                'font-size': '32px',
+                'text-align': 'center',
+                'align-items': 'center',
+                'justify-content': 'space-around',
+                'font-weight': '900',
+              });
+            //Score board goes down $100
+            scoreBoard-=100
+            bankColor()
+            $bank.text('$' + scoreBoard)
+
+            }
+
+          }
+        }
+       })
+     })
+  //end of switch case? I think?
+//Display money value in green if on the plus side and red if at negative balance
+
 //Check to see if all clues have been clicked.
 function isWinner() {
  $('.clue').addClass("clicked");
@@ -836,18 +920,9 @@ function isWinner() {
      //Cue confetti animation
       confetti();
      }
-
-
 }
 
 })//end of cell click function
-// $submitChoice.on('click', function() {
-//         console.log('submit clicked');
-//        //let choices = $('.choiceButton')
-//       })
 })//closing startbutton function
-// $resetButton.on('click', function()
-// {   document.querySelector('#mainSite').style.display = 'none';
-//     document.querySelector('#landingSite').style.display = 'block'; // restart game
-// });
+
 }//closing onload function
