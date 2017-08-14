@@ -9,6 +9,7 @@ const $submitButton = $('#submitButton');
 const $nameInput = $('#nameInput');
 const $resetButton = $('#resetButton');
 const $bankText = $('#bankText');
+var scoreBoard = 0;
 
 $submitButton.on('click', function() {
   //console.log('button');
@@ -649,48 +650,7 @@ $value5005.text('$500').css({
   'font-weight': '900',
 });
 
-const $value100 = 100;
-const $value200 = 200;
-const $value300 = 300;
-const $value400 = 400;
-const $value500 = 500;
 
-//ROW 100
-$value1001 === $value100;
-$value1002 === $value100;
-$value1003 === $value100;
-$value1004 === $value100;
-$value1005 === $value100;
-
-//ROW 200
-$value2001 === $value200;
-$value2002 === $value200;
-$value2003 === $value200;
-$value2004 === $value200;
-$value2005 === $value200;
-
-//ROW 300
-$value3001 === $value300;
-$value3002 === $value300;
-$value3003 === $value300;
-$value3004 === $value300;
-$value3005 === $value300;
-
-//ROW 400
-$value4001 === $value400;
-$value4002 === $value400;
-$value4003 === $value400;
-$value4004 === $value400;
-$value4005 === $value400;
-
-//ROW 500
-$value5001 === $value500;
-$value5002 === $value500;
-$value5003 === $value500;
-$value5004 === $value500;
-$value5005 === $value500;
-
-var scoreBoard = 0;
 //Display answers for each clue with switch statement
 function bankColor() {
       console.log('green or red');
@@ -706,43 +666,9 @@ function bankColor() {
 }
 
 
- let clicked = document.getElementsByClassName('clicked');
- let $cell = $('.cell').click(function() {
-  event.stopPropagation();
-  $(this).addClass('clicked')
-  if ($cell.length === clicked.length)
-
-      //If the scoreboard is less than or equal to 0, the player has lost
-      {
-      if (scoreBoard <= 0) {
-        $textBox.text('YOU HAVE LOST JEOPARDY. PLAY AGAIN!').css({
-          'font-family': 'Oswald',
-          'display': 'inline-flex',
-          'font-size': '32px',
-          'text-align': 'center',
-          'align-items': 'center',
-          'justify-content': 'space-around',
 
 
-        });
-        alert('YOU HAVE LOST JEOPARDY. PLAY AGAIN!')
-      }
-} //If the scoreboard is above 0, the player has won
-     else if (scoreBoard > 0) {
-      //Display the wonner text in the text box
-      $textBox.text('YOU HAVE WON JEOPARDY! SCROLL UP FOR CONFETTI!').css({
-        'font-family': 'Oswald',
-          'display': 'inline-flex',
-          'font-size': '26px',
-          'text-align': 'center',
-          'align-items': 'center',
-          'justify-content': 'space-around',
-      });
-      alert('YOU HAVE WON JEOPARDY! SCROLL UP FOR CONFETTI!')
-     //Cue confetti animation
-      confetti();
-     }
-})
+
 
   //Taken partially from Stack Overflow
 $('.cell').on('click', function() {
@@ -751,43 +677,6 @@ $('.cell').on('click', function() {
       //$('.cell').click(function() {
        //$(this).animate({ 'zoom': 1 }, 500);
       //})
-let clicked = document.getElementsByClassName('clicked');
- let $cell = $('.cell').click(function() {
-  event.stopPropagation();
-  $(this).addClass('clicked')
-  if ($cell.length === clicked.length)
-
-      //If the scoreboard is less than or equal to 0, the player has lost
-      {
-      if (scoreBoard <= 0) {
-        $textBox.text('YOU HAVE LOST JEOPARDY. PLAY AGAIN!').css({
-          'font-family': 'Oswald',
-          'display': 'inline-flex',
-          'font-size': '32px',
-          'text-align': 'center',
-          'align-items': 'center',
-          'justify-content': 'space-around',
-
-
-        });
-
-      }
-} //If the scoreboard is above 0, the player has won
-     else if (scoreBoard > 0) {
-      //Display the wonner text in the text box
-      $textBox.text('YOU HAVE WON JEOPARDY! SCROLL UP FOR CONFETTI!').css({
-        'font-family': 'Oswald',
-          'display': 'inline-flex',
-          'font-size': '26px',
-          'text-align': 'center',
-          'align-items': 'center',
-          'justify-content': 'space-around',
-      });
-
-     //Cue confetti animation
-      confetti();
-     }
-})
 
 //Display answers for each clue with switch statement
 $value1001.on('click', function() {
@@ -2251,8 +2140,46 @@ $value5005.on('click', function() {
         }
        })
      })
-  //end of switch case? I think?
-//Display money value in green if on the plus side and red if at negative balance
+
+let clicked = document.getElementsByClassName('clicked');
+ let $cell = $('.cell').click(function() {
+
+  $(this).addClass('clicked')
+
+  if (clicked.length === $cell.length)  {
+
+      //If the scoreboard is less than or equal to 0, the player has lost
+
+      if (scoreBoard <= 0) {
+        $textBox.text('YOU HAVE LOST JEOPARDY. PLAY AGAIN!').css({
+          'font-family': 'Oswald',
+          'display': 'inline-flex',
+          'font-size': '32px',
+          'text-align': 'center',
+          'align-items': 'center',
+          'justify-content': 'space-around',
+
+
+        })
+
+      }
+} //If the scoreboard is above 0, the player has won
+      if (scoreBoard > 0) {
+      //Display the wonner text in the text box
+      $textBox.text('YOU HAVE WON JEOPARDY! SCROLL UP FOR CONFETTI!').css({
+        'font-family': 'Oswald',
+          'display': 'inline-flex',
+          'font-size': '26px',
+          'text-align': 'center',
+          'align-items': 'center',
+          'justify-content': 'space-around',
+      })
+
+     //Cue confetti animation
+      confetti()
+     }
+
+})
 
 //Check to see if all clues have been clicked.
 
