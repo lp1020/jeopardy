@@ -677,7 +677,11 @@ function bankColor() {
       //$('.cell').click(function() {
        //$(this).animate({ 'zoom': 1 }, 500);
       //})
+class Game {
+  constructor() {
 
+  }
+}
 //Display answers for each clue with switch statement
 $value1001.on('click', function() {
   $(this).animate({ 'zoom': 5 }, 900)
@@ -709,7 +713,7 @@ $value1001.on('click', function() {
                 'font-weight': '900',
               });
               //Score board goes up $100
-              scoreBoard+=100
+              scoreBoard += 100;
               bankColor()
               $bank.text('$' + scoreBoard)
 
@@ -726,7 +730,7 @@ $value1001.on('click', function() {
                 'font-weight': '900',
               });
             //Score board goes down $100
-            scoreBoard-=100
+            scoreBoard-=100;
             bankColor()
             $bank.text('$' + scoreBoard)
 
@@ -768,7 +772,7 @@ $value1001.on('click', function() {
                 'font-weight': '900',
               })
               //Score board goes up $100
-              scoreBoard+=100
+              scoreBoard+=100;
               bankColor()
               $bank.text('$' + scoreBoard)
 
@@ -785,7 +789,7 @@ $value1001.on('click', function() {
                 'font-weight': '900',
               });
             //Score board goes down $100
-            scoreBoard-=100
+            scoreBoard-=100;
             bankColor()
             $bank.text('$' + scoreBoard)
 
@@ -2112,14 +2116,15 @@ $value5005.on('click', function() {
      })
 
  let $cell = $('.cell').click(function() {
-
+console.log($('.cell'));
   $(this).addClass('clicked')
+console.log($('.clicked'));
+  if ($('.clicked') === 24)  {
 
-  if ($('.clicked'.length) == $cell.length)  {
-
+console.log('hello')
       //If the scoreboard is less than or equal to 0, the player has lost
 
-      if (scoreBoard <= 0) {
+      if (scoreBoard <= 1000) {
         $textBox.text('YOU HAVE LOST JEOPARDY. PLAY AGAIN!').css({
           'font-family': 'Oswald',
           'display': 'inline-flex',
@@ -2133,7 +2138,9 @@ $value5005.on('click', function() {
 
       }
 } //If the scoreboard is above 0, the player has won
-      if (scoreBoard > 0) {
+
+      if (scoreBoard >= 1000)  {
+        console.log('---------here')
       //Display the wonner text in the text box
       $textBox.text('YOU HAVE WON JEOPARDY! SCROLL UP FOR CONFETTI!').css({
         'font-family': 'Oswald',

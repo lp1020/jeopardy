@@ -20,8 +20,8 @@
   justify-content: space-around;
   font-family: 'Oswald', sans-serif;
   font-size: 30px;
-  margin-top: 100px;
-  margin-left: 300px;
+  margin-top: 200px;
+  margin-left: 500px;
 
 }
 
@@ -34,7 +34,7 @@
   font-family: 'Oswald', sans-serif;
   font-size: 16px;
   margin-bottom: -50px;
-  margin-left: 450px;
+  margin-left: 675px;
 }
 
 #submitButton {
@@ -59,9 +59,10 @@ body {
 }
 
 header img {
-  margin-left: 80px;
+  margin-left: 250px;
+  margin-top: -50px;
   width: 1100px;
-  height: 400px;
+  height: 500px;
   border-radius: 20px;
 }
 
@@ -70,7 +71,7 @@ header img {
   height: 100px;
   float: right;
   margin-top: 30px;
-  margin-right: 100px;
+  margin-right: 250px;
   font-family: 'Oswald', sans-serif;
   font-size: 42px;
   color: white;
@@ -93,7 +94,7 @@ header img {
   display: inline-block;
   position: absolute;
   margin-top: 70px;
-  margin-left: 250px;
+  margin-left: 350px;
   border-radius: 90px;
 
 }
@@ -104,7 +105,7 @@ header img {
   width: 800px;
   position: absolute;
   margin-top: -100px;
-  margin-left: 250px;
+  margin-left: 375px;
   padding-left: 15px;
   padding-bottom: 15px;
   border-radius: 20px;
@@ -141,7 +142,7 @@ footer {
 #bankText {
   font-size: 46px;
   align-items: baseline;
-  float: right;
+  margin-left: 90px;
   font-family: 'Oswald', sans-serif;
   color: gold;
   justify-content: space-between;
@@ -160,7 +161,7 @@ footer {
   position: absolute;
   padding: 2px;
   margin-top: 90px;
-  margin-left: 70px;
+  margin-left: 125px;
   background-color: black;
   border-radius: 20px;
 }
@@ -172,7 +173,7 @@ footer {
 background-color: blue;
 border: 5px solid gold;
 margin-top: 200px;
-margin-left: 15px;
+margin-left: 75px;
 font-family: 'Oswald', sans-serif;
 font-size: 42px;
 font-weight: 900;
@@ -211,12 +212,13 @@ align-items: center;
   background-color: blue;
   color: white;
   border: 5px solid gold;
-  margin-right: 17px;
+  margin-right: 200px;
 
 }
 
 
 #trebek {
+  margin-left: 100px;
   animation-name: bounce;
   animation-duration: 3s;
   animation-iteration-count: infinite;
